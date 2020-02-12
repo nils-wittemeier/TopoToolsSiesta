@@ -22,7 +22,7 @@ def parse_args():
         return klist
 
     parser = argparse.ArgumentParser(
-            description="Plot two bands strucutres in one.")
+            description="Calculate the spin texture of a system.")
 
     parser.add_argument(
             "infile", type=str,

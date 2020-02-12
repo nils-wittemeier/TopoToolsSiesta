@@ -1,13 +1,13 @@
 # Topological invariants:
 Z2pack can be used with siesta outputs if either the HSX or TSHS-file was
-generated. The TSHS-file is sufficient on its on. When using the HSX-file
+generated. The TSHS-file is sufficient on its own. When using the HSX-file
 more output files are required.
 
 Required files:
  - TSHS or
  - HSX + fdf + ion(.nc)
 
-The infile argument can be either the fdf-file or the TSHS-file.
+The 'infile' argument can be either the fdf-file or the TSHS-file.
 
 ## Example:
     python ../Z2run.py b-hex.TSHS "[t1/2,t2,0]" --hermitian-tol=10e-5 --num-lines=101 --iterator 20 101 2 --min-neighbour-dist=1e-10
@@ -23,7 +23,7 @@ The infile argument can be either the fdf-file or the TSHS-file.
     Calculate Z2 invariant.
 
     positional arguments:
-        infile                input file to calculate spintexture from (fdf-file)
+        infile                input file to calculate Z2 from (fdf-file)
         surface               Expression describing the surface on which the WCC /
                             Wilson loops should be calculated. The argument should
                             be the right side of a lambda expression which
