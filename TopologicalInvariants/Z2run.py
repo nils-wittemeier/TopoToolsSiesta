@@ -137,7 +137,7 @@ result = z2pack.surface.run(
     surface=lambda t1, t2: eval(args.surface),
     save_file=args.save_file,
     num_lines=args.num_lines,
-    iterator=args.iterator,
+    iterator=range(*args.iterator),
     min_neighbour_dist=args.min_neighbour_dist,
     load=args.load,
 )
