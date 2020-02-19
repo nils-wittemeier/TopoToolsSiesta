@@ -1,0 +1,212 @@
+
++----------------------------------------------------------------------+
+|   ===================                                                |
+|   SURFACE CALCULATION                                                |
+|   ===================                                                |
+|   starting at 2020-02-18 10:00:53,253                                |
+|   running Z2Pack version 2.1.1                                       |
+|                                                                      |
+|   gap_tol:            0.3                                            |
+|   init_result:        None                                           |
+|   iterator:           range(8, 40, 2)                                |
+|   load:               False                                          |
+|   load_quiet:         True                                           |
+|   min_neighbour_dist: 0.01                                           |
+|   move_tol:           0.3                                            |
+|   num_lines:          11                                             |
+|   pos_tol:            0.01                                           |
+|   save_file:          ./res_full.json                                |
+|   serializer:         auto                                           |
+|   surface:            <function <lambda> at 0x7f95f7bffdd0>          |
+|   system:             <z2pack.hm.System object at 0x7f95f7c2a1d0>    |
++----------------------------------------------------------------------+
+
+INFO: Adding lines required by 'num_lines'.
+INFO: Adding line at t = 0.0
+INFO:       Calculating line for N = 8
+INFO:       Calculating line for N = 10
+INFO: Adding line at t = 0.1
+INFO:       Calculating line for N = 8
+INFO:       Calculating line for N = 10
+INFO:       Calculating line for N = 12
+INFO:       Calculating line for N = 14
+INFO:       Calculating line for N = 16
+INFO:       Calculating line for N = 18
+INFO:       Calculating line for N = 20
+INFO: Saving surface result to file ./res_full.json (ASYNC)
+INFO:       Calculating line for N = 22
+INFO:       Calculating line for N = 24
+INFO:       Calculating line for N = 26
+INFO:       Calculating line for N = 28
+INFO:       Calculating line for N = 30
+INFO:       Calculating line for N = 32
+INFO: Adding line at t = 0.2
+INFO:       Calculating line for N = 8
+INFO:       Calculating line for N = 10
+INFO:       Calculating line for N = 12
+INFO: Adding line at t = 0.30000000000000004
+INFO:       Calculating line for N = 8
+INFO:       Calculating line for N = 10
+INFO:       Calculating line for N = 12
+INFO: Adding line at t = 0.4
+INFO:       Calculating line for N = 8
+INFO: Saving surface result to file ./res_full.json (ASYNC)
+INFO:       Calculating line for N = 10
+INFO: Adding line at t = 0.5
+INFO:       Calculating line for N = 8
+INFO:       Calculating line for N = 10
+INFO: Adding line at t = 0.6000000000000001
+INFO:       Calculating line for N = 8
+INFO:       Calculating line for N = 10
+INFO: Adding line at t = 0.7000000000000001
+INFO:       Calculating line for N = 8
+INFO:       Calculating line for N = 10
+INFO: Adding line at t = 0.8
+INFO:       Calculating line for N = 8
+INFO: Saving surface result to file ./res_full.json (ASYNC)
+INFO:       Calculating line for N = 10
+INFO: Adding line at t = 0.9
+INFO:       Calculating line for N = 8
+INFO:       Calculating line for N = 10
+INFO: Adding line at t = 1.0
+INFO:       Calculating line for N = 8
+INFO:       Calculating line for N = 10
+INFO: Convergence criteria fulfilled for 8 of 10 neighbouring lines.
+INFO: Adding line at t = 0.05
+INFO:       Calculating line for N = 8
+INFO:       Calculating line for N = 10
+INFO:       Calculating line for N = 12
+INFO:       Calculating line for N = 14
+INFO: Saving surface result to file ./res_full.json (ASYNC)
+INFO:       Calculating line for N = 16
+INFO:       Calculating line for N = 18
+INFO:       Calculating line for N = 20
+INFO:       Calculating line for N = 22
+INFO:       Calculating line for N = 24
+INFO:       Calculating line for N = 26
+INFO:       Calculating line for N = 28
+INFO:       Calculating line for N = 30
+INFO:       Calculating line for N = 32
+INFO:       Calculating line for N = 34
+INFO:       Calculating line for N = 36
+INFO: Adding line at t = 0.15000000000000002
+INFO:       Calculating line for N = 8
+INFO:       Calculating line for N = 10
+INFO:       Calculating line for N = 12
+INFO:       Calculating line for N = 14
+INFO: Convergence criteria fulfilled for 9 of 12 neighbouring lines.
+INFO: Adding line at t = 0.025
+INFO:       Calculating line for N = 8
+INFO:       Calculating line for N = 10
+INFO: Adding line at t = 0.07500000000000001
+INFO:       Calculating line for N = 8
+INFO:       Calculating line for N = 10
+INFO: Saving surface result to file ./res_full.json (ASYNC)
+INFO:       Calculating line for N = 12
+INFO:       Calculating line for N = 14
+INFO:       Calculating line for N = 16
+INFO:       Calculating line for N = 18
+INFO:       Calculating line for N = 20
+INFO:       Calculating line for N = 22
+INFO:       Calculating line for N = 24
+INFO:       Calculating line for N = 26
+INFO:       Calculating line for N = 28
+INFO:       Calculating line for N = 30
+INFO:       Calculating line for N = 32
+INFO:       Calculating line for N = 34
+INFO: Adding line at t = 0.125
+INFO:       Calculating line for N = 8
+INFO:       Calculating line for N = 10
+INFO:       Calculating line for N = 12
+INFO:       Calculating line for N = 14
+INFO: Saving surface result to file ./res_full.json (ASYNC)
+INFO:       Calculating line for N = 16
+INFO:       Calculating line for N = 18
+INFO:       Calculating line for N = 20
+INFO:       Calculating line for N = 22
+INFO:       Calculating line for N = 24
+INFO:       Calculating line for N = 26
+INFO: Convergence criteria fulfilled for 12 of 15 neighbouring lines.
+INFO: Adding line at t = 0.037500000000000006
+INFO:       Calculating line for N = 8
+INFO:       Calculating line for N = 10
+INFO:       Calculating line for N = 12
+INFO:       Calculating line for N = 14
+INFO:       Calculating line for N = 16
+INFO:       Calculating line for N = 18
+INFO:       Calculating line for N = 20
+INFO:       Calculating line for N = 22
+INFO:       Calculating line for N = 24
+INFO:       Calculating line for N = 26
+INFO:       Calculating line for N = 28
+INFO:       Calculating line for N = 30
+INFO: Saving surface result to file ./res_full.json (ASYNC)
+INFO:       Calculating line for N = 32
+INFO:       Calculating line for N = 34
+INFO: Adding line at t = 0.0625
+INFO:       Calculating line for N = 8
+INFO:       Calculating line for N = 10
+INFO:       Calculating line for N = 12
+INFO:       Calculating line for N = 14
+INFO:       Calculating line for N = 16
+INFO:       Calculating line for N = 18
+INFO:       Calculating line for N = 20
+INFO:       Calculating line for N = 22
+INFO:       Calculating line for N = 24
+INFO:       Calculating line for N = 26
+INFO:       Calculating line for N = 28
+INFO:       Calculating line for N = 30
+INFO:       Calculating line for N = 32
+INFO: Saving surface result to file ./res_full.json (ASYNC)
+INFO:       Calculating line for N = 34
+INFO:       Calculating line for N = 36
+INFO: Adding line at t = 0.08750000000000001
+INFO:       Calculating line for N = 8
+INFO:       Calculating line for N = 10
+INFO:       Calculating line for N = 12
+INFO:       Calculating line for N = 14
+INFO:       Calculating line for N = 16
+INFO:       Calculating line for N = 18
+INFO:       Calculating line for N = 20
+INFO:       Calculating line for N = 22
+INFO:       Calculating line for N = 24
+INFO:       Calculating line for N = 26
+INFO:       Calculating line for N = 28
+INFO:       Calculating line for N = 30
+INFO:       Calculating line for N = 32
+INFO:       Calculating line for N = 34
+INFO: Convergence criteria fulfilled for 17 of 18 neighbouring lines.
+WARNING: 'min_neighbour_dist' reached: cannot add line at t = 0.03125
+INFO: Saving surface result to file ./res_full.json (ASYNC)
+
++----------------------------------------------------------------------+
+|                  Calculation finished in 0h 1m 15s                   |
++----------------------------------------------------------------------+
+
++----------------------------------------------------------------------+
+|                         ==================                           |
+|                         CONVERGENCE REPORT                           |
+|                         ==================                           |
+|                                                                      |
+|                         Line Convergence                             |
+|                         ================                             |
+|                                                                      |
+|                             PosCheck                                 |
+|                             --------                                 |
+|                             PASSED: 19 of 19                         |
+|                                                                      |
+|                         Surface Convergence                          |
+|                         ===================                          |
+|                                                                      |
+|                             GapCheck                                 |
+|                             --------                                 |
+|                             PASSED: 17 of 18                         |
+|                             FAILED: 1 of 18                          |
+|                                                                      |
+|                             MoveCheck                                |
+|                             ---------                                |
+|                             PASSED: 17 of 18                         |
+|                             FAILED: 1 of 18                          |
++----------------------------------------------------------------------+
+
+Z2 topological invariant of the full system: 1

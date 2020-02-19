@@ -1,0 +1,73 @@
+############### System info ###############
+SystemName        b-hex
+SystemLabel       b-hex
+
+########### Geometrical info ##############
+LatticeConstant 1.0 Ang
+%block LatticeVectors
+  4.59844923  0.00000000  0.00000000
+ -2.29922485  3.98237426  0.00000000
+  0.00000000  0.00000000 46.00000000
+%endblock LatticeVectors
+
+NumberOfAtoms 2
+AtomicCoordinatesFormat Fractional
+%block AtomicCoordinatesAndAtomicSpecies
+ 0.66666691 0.33333308 0.02569980 1 # 1: Bi
+ 0.00000007 -0.00000010 0.06118894 1 # 2: Bi
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+NumberOfSpecies 1
+%block ChemicalSpeciesLabel
+ 1 83 Bi
+%endblock ChemicalSpeciesLabel
+
+################ Basis set ##################
+# TZP basis set for bismuth monolayers
+%block PAO.Basis
+Bi   4   split                              # Basis type and ionic charge can be optimized too
+n=5   2   3                                 # 5d
+  5.5237876  2.2088348  1.3965179
+n=6   0   3                                 # 6s
+  7.3338942  5.2932407  2.3965179
+n=6   1   3                                 # 6p
+  9.2343860  3.3308267  2.2064379
+n=6   2   1                                 # 6d
+  6.4786457
+%endblock PAO.Basis
+
+#### Exchange-Correlation functional ########
+xc.functional         GGA   
+xc.authors            PBE  
+
+########### Magnetic option #############
+Spin            spin-orbit           # (default)
+
+################ SCF options #############
+SCF.Mix                 Hamiltonian  # (default) Hamiltonian
+SCF.Mix.First           T            # (default) true
+SCF.Mixer.Method        Pulay        # (default) Pulay
+SCF.Mixer.Weight        0.25         # (default) 0.25
+SCF.Mixer.History       5            # (default) 2
+SCF.Mixer.Kick          0            # (default) 0
+
+SCF.DM.Converge         T            # (default) true
+SCF.DM.Tolerance        1.0d-5       # (default) 1.0d-4
+SCF.H.Converge          T            # (default) true
+SCF.H.Tolerance         1.0d-3 eV    # (default) 1.0d-4
+SCF.FreeE.Converge      T            # (default) true
+SCF.FreeE.Tolerance     1.0d-8 eV    # (default) 1.0d-4
+
+############# Reciprocal grid #############
+%block kgrid.MonkhorstPack
+ 31   0  0  0.
+  0  31  0  0.
+  0   0  1  0.
+%endblock kgrid.MonkhorstPack
+
+############ MISCELLANEOUS ##############
+ElectronicTemperature   10 meV
+MeshCutoff             900 Ry
+Write.DM               true 
+TS.HS.Save             true
+#Write.H                true
