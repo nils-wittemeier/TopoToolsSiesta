@@ -2,8 +2,9 @@
 TODO
 *.gz
 .ipynb_checkpoints
-*/siesta_work/*
-!*/siesta_work/*.fdf
-!*/siesta_work/*.out
-!*/siesta_work/*.HSX
-!*/siesta_work/*.ion.nc
+tmp*
+**/siesta_work/*
+!**/siesta_work/*.fdf
+!**/siesta_work/*.out
+!**/siesta_work/*.HSX
+!**/siesta_work/*.ion.nc
