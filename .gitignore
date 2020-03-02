@@ -8,3 +8,4 @@ tmp*
 !**/siesta_work/*.out
 !**/siesta_work/*.HSX
 !**/siesta_work/*.ion.nc
+!**/siesta_work/Bi.psf
