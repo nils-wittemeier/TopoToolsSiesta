@@ -7,10 +7,10 @@ SystemLabel       Bi2D_BHex
 
 ################ Basis set ##################
 # WARNING:
-#    The following Basis set may be under-converged. For serious calculations,
-#    the convergence with respect to the basis size and cut-off radii has to be
-#    studied carefully. These values are chosen for quick demenstration during
-#    the tutorial.
+#    The following basis set may be under-converged. For production
+#    calculations, the convergence with respect to the basis size and cut-off
+#    radii has to be studied carefully. These values are chosen for
+#    demonstration purposes only.
 %block PAO.Basis
 Bi                    3                    # Species label, number of l-shells
  n=6   0   1                         # n, l, Nzeta
@@ -42,16 +42,15 @@ SCF.Mixer.Kick          0            # (default) 0
 
 SCF.DM.Converge         T            # (default) true
 # WARNING:
-#    The DM tolerance is very low and should not be used for serious
-#    calculations.  This value is chosen for quick demenstration during the
-#    tutorial.
+#    The DM tolerance is very high and should not be used for production
+#    calculations. This value is chosen for demonstration purposes only.
 SCF.DM.Tolerance        1.0d-3       # (default) 1.0d-4
 
 ############# Reciprocal grid #############
 # WARNING:
-#    K-grid is under-converged. For serious calculations, the convergence with
-#    respect to the number of k-point has to be studied carefully. These
-#    values are chosen for quick demenstration during the tutorial.
+#    K-grid may be under-converged. For production calculations, the
+#    convergence with respect to the number of k-point has to be studied
+#    carefully. These values are chosen for demonstration purposes only.
 %block kgrid.MonkhorstPack
   9   0  0  0.5
   0   9  0  0.5
@@ -60,10 +59,10 @@ SCF.DM.Tolerance        1.0d-3       # (default) 1.0d-4
 
 ############ MISCELLANEOUS ##############
 # WARNING:
-#    The following value may be under-converged. For serious calculations, the
-#    convergence with respect to electronic temeprature and mesh cut-off has to
-#    be studied carefully. These values are chosen for quick demenstration
-#    during the tutorial.
+#    The following values may be under-converged. For production calculations,
+#    the convergence with respect to electronic temeprature and mesh cut-off
+#    has to be studied carefully. These values are chosen for demonstration
+#    purposes only.
 ElectronicTemperature   10 meV
 MeshCutoff             400 Ry
 

@@ -4,8 +4,11 @@ TODO
 .ipynb_checkpoints
 tmp*
 **/siesta_work/*
+**/siesta_work_bakup/*
 !**/siesta_work/*.fdf
 !**/siesta_work/*.out
+!**/siesta_work/*.EIG
 !**/siesta_work/*.HSX
 !**/siesta_work/*.ion.nc
+!**/siesta_work/*.ORB_INDX
 !**/siesta_work/Bi.psf
