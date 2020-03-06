@@ -1,6 +1,8 @@
 *.json
 TODO
 *.gz
+.*.swp
+.*.swo
 .ipynb_checkpoints
 tmp*
 **/siesta_work/*
