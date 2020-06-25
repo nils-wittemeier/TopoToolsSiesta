@@ -59,6 +59,7 @@ if __name__ == '__main__':
 
     assert H is not None, "Could not read Hamiltonian."
     
+    if len(args.division) == 1: args.division = args.division[0]
     kpath = sisl.BandStructure(
             H,
             point=args.kpoints,
