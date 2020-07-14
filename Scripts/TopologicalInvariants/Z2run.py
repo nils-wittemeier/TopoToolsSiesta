@@ -178,21 +178,3 @@ print(
         z2pack.invariant.z2(result)
     )
 )
-
-# Run the WCC calculations
-result = z2pack.surface.run(
-    system=system,
-    surface=z2pack.shape.Sphere(center=(0.,0.,0), radius=0.001),
-    save_file=args.save_file,
-    num_lines=args.num_lines*3,
-    iterator=range(*args.iterator),
-    min_neighbour_dist=args.min_neighbour_dist,
-    load=args.load,
-)
-
-print(
-    'Chern Number: {0}'.format(
-        z2pack.invariant.chern(result)
-    )
-)
-

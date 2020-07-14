@@ -13,7 +13,7 @@ Required files:
 The 'infile' argument can be either the fdf-file or the TSHS-file.
 
 ## Example:
-    python ../Z2run.py b-hex.TSHS "[t1/2,t2,0]" --hermitian-tol=1e-4 --min-neighbour-dist=1e-10
+    python ../Z2run.py -i b-hex.TSHS -s "[t1/2,t2,0]" --hermitian_tol 1e-4 --min_neighbour_dist 1e-10
 
 ## Usage:
     usage: Z2run.py [-h] [-i INFILE] [-s SURFACE] [--pos_tol POS_TOL]
