@@ -1,0 +1,75 @@
+# The input for tbtrans does not contain any direct
+# reference to the dH for magnetic field
+# We will add the flag TBT.dH for each B field
+# directly from command line
+TBT.HS DEVICE.nc
+
+TBT.T.All true
+# Figure out how to save the self-energy function files
+# once, and then re-use them.
+# For reference they are named TBTGF files
+
+%block TBT.Elecs
+  Left
+  BottomLeft
+  BottomRight
+  Right
+  TopRight
+  TopLeft
+%endblock
+
+%block TBT.Elec.Left
+  HS ELEC_x.nc
+  semi-inf-direction -A1
+  electrode-position 4801
+  out-of-core true
+  tbt.gf siesta.TBTGFLeft
+%endblock TBT.Elec.Left
+
+%block TBT.Elec.BottomLeft
+  HS ELEC_y.nc
+  semi-inf-direction -A2
+  electrode-position 4831
+  out-of-core true
+  tbt.gf siesta.TBTGFBottomLeft
+%endblock
+ 
+%block TBT.Elec.BottomRight
+  HS ELEC_y.nc
+  semi-inf-direction -A2
+  electrode-position 4861
+  out-of-core true
+  tbt.gf siesta.TBTGFBottomRight
+%endblock
+
+%block TBT.Elec.Right
+  HS ELEC_x.nc
+  semi-inf-direction +A1
+  electrode-position end 4920
+  out-of-core true
+  tbt.gf siesta.TBTGFRight
+%endblock TBT.Elec.Right
+
+%block TBT.Elec.TopRight
+  HS ELEC_y.nc
+  semi-inf-direction +A2
+  electrode-position end 4950
+  out-of-core true
+  tbt.gf siesta.TBTGFTopRight
+%endblock
+
+%block TBT.Elec.TopLeft
+  HS ELEC_y.nc
+  semi-inf-direction +A2
+  electrode-position end 4980
+  out-of-core true
+  tbt.gf siesta.TBTGFTopLeft
+%endblock
+
+# Reduce the energy-grid to [-0.005 : 0.5] eV
+%block TBT.Contour.line
+  part line
+     from 0 eV to 1 eV
+      delta 0.005 eV
+        method mid-rule
+%endblock TBT.Contour.line
