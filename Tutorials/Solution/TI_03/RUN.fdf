@@ -70,6 +70,6 @@ TBT.T.All true
 %block TBT.Contour.line
   part line
      from 0 eV to 1 eV
-      delta 0.005 eV
+      delta 0.001 eV
         method mid-rule
 %endblock TBT.Contour.line
