@@ -1,41 +1,92 @@
-# 1 Calculate the spin texture (SpinTexture.py)
+# 1 Calculating the spin texture (SpinTexture.py)
 
 ## 1.1 Required files
 
-Spin texture can be calculated from siesta outputs if either the HSX, TSHS or SystemLabel.nc file was generated. When using the HSX-file *ion files are required as well for information about the basis set. 
+Spin texture can be calculated from siesta outputs if either the `HSX`, `TSHS` or `SystemLabel.nc` file was generated. When using the `HSX` file `*.ion`  files are required as well for information about the basis set. 
+
+
+## 1.2 Input file:
+Input file should be written in json format specifying the following fields.
+
+ Field            | Type       | Description 
+------------------|------------|-------------
+ fdf*             | `string`   | Input file of SIESTA calculation
+ out*             | `string`   | Name of output file 
+ kpath*           | `dict`     | Specification of reciprocal space sampling (see section 1.2.1)
+ erange           | `tuple` of `float` | Select an energy range 
+
+(*) required field
+
+### 1.2.1 Reciprocal space sampling
+
+ Field            | Type       | Description 
+------------------|------------|-------------
+ mode             | `string`   | Type of reciprocal space sampling either: [`BandStructure`](https://sisl.readthedocs.io/en/latest/api/generated/sisl.physics.BandStructure.html), [`MonkhorstPack`](https://sisl.readthedocs.io/en/latest/api/generated/sisl.physics.MonkhorstPack.html), [`BrillouinZone`](https://sisl.readthedocs.io/en/latest/api/generated/sisl.physics.BrillouinZone.html) [`Circle`](https://sisl.readthedocs.io/en/latest/api/generated/sisl.physics.BrillouinZone.html#sisl.physics.BrillouinZone.param_circle)
+ kwargs           | `string`   | Parameters for the sampling method. (see below. For a complete list refer to the [sisl documentation](https://zerothi.github.io/sisl/index.html))
+
+(*) required field
+
+ #### BandStructure
  
-## 1.2 Usage
+ Field            | Type                  | Description 
+------------------|-----------------------|-------------
+ points*          | `float array`         | A list of points that are the corners of the path
+ divisions*       | `int` or `int array`  | If integer: total number of points. If array_like: number of points in each segment.
+ names            | `str array`           | The associated names of the points on the Brillouin Zone path
 
-  usage: SpinTexture.py [-h] [-o outfile] -k KPOINTS -n DIVISION [DIVISION ...]
-                        [-l [KLABELS [KLABELS ...]]] [--hsx]
-                        infile
+#### MonkhorstPack
+ 
+ Field            | Type                     | Description 
+------------------|--------------------------|-------------
+nkpt*             | `int array`              | A list of number of k-points along each cell direction
+displacement      | `float` or `float array` | The displacement of the evenly spaced grid, a single floating number is the displacement for the 3 directions, else they are the individual displacements (Default: None)
+centered          | `bool`                   | Whether the k-points are Γ-centered for zero displacement (Default: True)
 
-  Calculate the spin texture of a system.
+(*) required field
 
-  positional arguments:
-    infile                input file to calculate spintexture from (fdf-file)
+ #### BrillouinZone
 
-  optional arguments:
-    -h, --help            show this help message and exit
-    -o outfile, --outfile outfile
-                          output file
-    -k KPOINTS, --kpoints KPOINTS
-                          corner points of k-path in reciprocal coordinates;
-                          coordinates space-separated and kpoints comma-
-                          separated
-    -n DIVISION [DIVISION ...], --division DIVISION [DIVISION ...]
-                          number of k-points along the path
-    -l [KLABELS [KLABELS ...]], --klabels [KLABELS [KLABELS ...]]
-                          labels for corner points of k-path
-    --hsx                 shift fermi level when reading from HSX
+ Field            | Type       | Description 
+------------------|------------|-------------
+ mode             | `string`   |
 
-##	1.3 Example: 
-    python3 SpinTexture.py Bi2D_BHex.fdf \
-      -o Bi2D_BHex.spin.bands \
-      -k "0.5 0. 0., 0. 0. 0., 0.33333 0.33333 0., 0. 0. 0." -n 300 \
-      -l M $\\Gamma$ K M \
-      --hsx
+(*) required field
 
+
+#### Circle
+
+
+ Field            | Type             | Description 
+------------------|------------------|-------------
+ N_or_dk*         | `int` or `float` | Number of k-points generated using the parameterization (if an integer), otherwise it specifies the discretization length on the circle (in 1/Ang), If the latter case will use less than 4 points a warning will be raised and the number of points increased to 4.
+ kR*              | `float`          | Radius of the k-point. In 1/Ang
+ normal*          | `float array`    | Normal vector to determine the circle plane
+ origin           | `float array`    | Origin of the circle used to generate the circular parameterization
+
+(*) required field
+
+##	1.4 Example: 
+
+### 1.4.1 Spin texture along the M - Γ - K - Γ in a 2D material in a hexagonal material
+    {
+        "fdf-file" : "in.fdf" ,
+        "outfile" : "Label.spin.bands",
+        "kpath" : { 
+            "mode" : "BandStructure",
+            "kwargs":  {
+                "k" : [
+                    [0.5    , 0.     , 0.],
+                    [0.     , 0.     , 0.],
+                    [0.33333, 0.33333, 0.],
+                    [0.     , 0.     , 0.]
+                ],
+                "n": 300,
+                "labels" :  ["M", "$\\Gamma$", "K", "M"]
+            }
+        }
+    }
+
+### 1.4.2 Spin texture along a circle in a 2D material in a hexagonal material
 
 # 2. Plot spin texture (PlotSpinTexture.py)
 
@@ -43,32 +94,36 @@ Spin texture can be calculated from siesta outputs if either the HSX, TSHS or Sy
  - spin.bands file generated by SpinTexture.py
 
 ## 2.2 Usage
-  usage: PlotSpinTexture.py [-h] [-o outfile] [-x XRANGE] [-y YRANGE]
-                            [--title TITLE] [--xlabel XLABEL] [--ylabel YLABEL]
-                            [--with-grid] [--with-legend]
-                            [--legend-labels LEGEND_LABELS [LEGEND_LABELS ...]]
-                            bandsfile
-
-  Plot the spin texture of a system.
-
-  positional arguments:
-    bandsfile             file with spin texture file (spin.bands-file)
-
-  optional arguments:
-    -h, --help            show this help message and exit
-    -o outfile, --outfile outfile
-                          output file
-    -x XRANGE, --xrange XRANGE
-                          range on x-axis; format "min:max"
-    -y YRANGE, --yrange YRANGE
-                          range on y-axis; format "min:max"
-    --title TITLE         plot tile
-    --xlabel XLABEL       label for x-axis
-    --ylabel YLABEL       label for y-axis
-    --with-grid           enable grid in plot
-    --with-legend         enable legend in plot
-    --legend-labels LEGEND_LABELS [LEGEND_LABELS ...]
-                          labels for each dataset
+    usage: PlotSpinTexture.py [-h] [-o outfile] [-m MODE] [-x XRANGE] [-y YRANGE] [-e ERANGE] [--title TITLE] [--xlabel XLABEL]
+                              [--ylabel YLABEL] [--with-grid] [--with-legend]
+                              [--legend-labels LEGEND_LABELS [LEGEND_LABELS ...]] [--only ONLY] [--no-spin]
+                              bandsfile
+    
+    Plot the spin texture of a system.
+    
+    positional arguments:
+      bandsfile             file with spin texture file (spin.bands-file)
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -o outfile, --outfile outfile
+                            output file
+      -m MODE, --mode MODE  plot mode; "lk" for linear plot (band structure like), "quiver" for arrows on grid/set of k points
+      -x XRANGE, --xrange XRANGE
+                            range on x-axis; format "min:max"
+      -y YRANGE, --yrange YRANGE
+                            range on y-axis; format "min:max"
+      -e ERANGE, --erange ERANGE
+                            energy range; format "min:max"; only takes effect is "mode"="quiver"
+      --title TITLE         plot tile
+      --xlabel XLABEL       label for x-axis
+      --ylabel YLABEL       label for y-axis
+      --with-grid           enable grid in plot
+      --with-legend         enable legend in plot
+      --legend-labels LEGEND_LABELS [LEGEND_LABELS ...]
+                            labels for each dataset
+      --only ONLY           only plot one component (x/y/z)
+      --no-spin             plot no spin component
 
 ## 2.3 Example
     python3 PlotSpinTexture.py b-hex.spin.bands \
