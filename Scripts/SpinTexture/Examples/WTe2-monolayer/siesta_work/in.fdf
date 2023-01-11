@@ -1,0 +1,109 @@
+# Name and Label
+SystemName          WTe2 monolayer 1T' #(default: blank)
+SystemLabel         WTe2  #(default: siesta)
+
+# Chemical species and Atoms
+NumberOfSpecies        2
+NumberOfAtoms          6
+
+%block ChemicalSpeciesLabel
+  1   74  W
+  2   52  Te
+%endblock ChemicalSpeciesLabel
+
+# Cell and atomic positions 
+LatticeConstant       1.00 Ang
+
+%block LatticeVectors   
+  3.496   0.0     0.0
+  0.0     6.282   0.0
+  0.0     0.0   104.07
+%endblock LatticeVectors  
+  
+AtomicCoordinatesFormat   Ang 
+%block AtomicCoordinatesAndAtomicSpecies     # monolayer in initial WTe2 bulk, then sym by Pablo, and change 1 digital
+   0.87400   1.12793   0.10482   1
+  -0.87400  -1.12793  -0.10482   1
+  -0.87400   2.68147  -1.46258   2
+  -0.87400   0.48277   2.07744   2
+   0.87400   3.60053   1.46258   2
+   0.87400  -0.48277  -2.07744   2
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+# K-points sampling
+%block kgrid_Monkhorst_Pack
+        14               0               0              0.5
+         0               8               0              0.5
+         0               0               1              0.5
+%endblock kgrid_Monkhorst_Pack
+
+# Real-space mesh Fineness of the grid
+MeshCutoff              500 Ry     # default value 100 Ry
+PAO.EnergyShift         0.002 Ry   # default 0.02 Ry
+
+XC.Functional           GGA      
+XC.Authors              PBE
+Spin                    spin-orbit 
+
+ElectronicTemperature  0.008 eV # default 300K, 8meV ~ 92.8K
+
+# Self Consistent Options
+SCF.Mix                 Hamiltonian  # (default) Hamiltonian, which is better for soc calc.
+SCF.Mix.First           F            # (default) true
+MaxSCFIterations        200          # (default) 1000
+SCF.Mixer.Method        Pulay        # (default) Pulay
+SCF.Mixer.Weight        0.25         # (default) 0.25
+SCF.Mixer.History       5            # (default) 2
+SCF.Mixer.Kick          30           # (default) 0
+SCF.DM.Converge         T            # (default) true
+SCF.DM.Tolerance        1.0d-5       # (default) 1.0d-4
+SCF.H.Tolerance         1.d-5 eV     # for SOC
+WriteOrbMom             .true.       # For SOC, T-print output of vector orbital magneticc moment (mB)
+
+# Conjugate Gradient Method
+#MD.TypeOfRun            CG
+#MD.NumCGsteps           200
+#MD.MaxCGDispl          0.4 Ang         #default 0.2 Bohr
+#MD.MaxForceTol         0.01 eV/Ang     #default 0.04 eV/Ang Force tolerance in coordinate optimization
+#MD.VariableCell        .true.          # Is the lattice relaxed together with the atomic coordinates?
+
+# Matthieu's spglib branch
+ImposeSymmetries       .true. # (default false)
+#ToleranceSymmetries     1d-5  #  (default: 1d-6)
+
+# Keeping c lattice constant fixed
+#%block Geometry.Constraints
+#stress 3 4 5
+#%endblock
+
+DM.UseSaveDM            .true.      # Use DM Continuation files
+MD.UseSaveXV            .true.      # Use stored positions and velocities
+MD.UseSaveCG            .true.      # Use stored positions and velocities
+
+### Spin Texture and Z2 invariant
+#SaveHS     T  # write Hamiltonian and overlap matrices and other data to generate bands and DOS, in file .HSX.
+TS.HS.Save T  # (default) true, saving the Hamiltonian (SystemLabel.TSHS).
+#CDF.Save   T  # Create the SystemLabel.nc file which is a NetCDF file.
+
+# Magnetic moment
+#DM.InitSpin.AF         true  # default false, the initial spin-configuration is a ferromagnetic order (all spins up).
+                              # if true, all odd atoms are initialized to spin-up, all even atoms are initialized to spin-down.
+WriteMullikenPop        1
+XML.Write              true
+#WriteVoronoiPop        true
+#WriteHirshfeldPop      true
+
+# External Electric Fields and dipole
+#%block ExternalElectricField
+#0.000 0.000 0.10 V/Ang         # a vector in Cartesian coordinates, in the specified units V/Ang.
+#%endblock ExternalElectricField
+
+#SlabDipoleCorrection    true    # applying an electric field perpendicular to a slab will slab dipole correction defautly
+
+# Bands
+BandLinesScale       ReciprocalLatticeVectors
+%block BandLines
+1        0.500   0.000   0.000   X
+200      0.000   0.000   0.000   \Gamma
+200      0.000   0.500   0.000   Y
+%endblock BandLines
