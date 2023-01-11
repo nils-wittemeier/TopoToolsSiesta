@@ -107,39 +107,39 @@ centered          | `bool`                   | Whether the k-points are Γ-cente
     }
 
 ### 1.4.2 Spin texture along a circle in a 2D material
-{
-    "fdf" : "in.fdf" ,
-    "out" : "Label.spin.circle.dat",
-    "kpath" : { 
-        "mode" : "Circle",
-        "kwargs":  {
-            "kR" : 0.0085,
-            "origin": [0.0    , 0.0    , 0.0],
-            "normal": [0.0    , 0.0    , 1.0],
-            "N_or_dk": 25,
-            "loop": true
+    {
+        "fdf" : "in.fdf" ,
+        "out" : "Label.spin.circle.dat",
+        "kpath" : { 
+            "mode" : "Circle",
+            "kwargs":  {
+                "kR" : 0.0085,
+                "origin": [0.0    , 0.0    , 0.0],
+                "normal": [0.0    , 0.0    , 1.0],
+                "N_or_dk": 25,
+                "loop": true
+            }
         }
     }
-}
 
 ### 1.4.3 Spin texture along a constant energy path
-{
-    "fdf" : "in.fdf" ,
-    "out" : "Label.spin.circle.dat",
-    "kpath" : { 
-        "mode" : "constE",
-        "energy" : 0.33,
-        "etol": 0.01,
-        "kRmin" : 0.080,
-        "kRmax" : 0.140,
-        "kwargs": {
-            "origin": [0.0    , 0.0    , 0.0],
-            "normal": [0.0    , 0.0    , 1.0],
-            "N_or_dk": 49,
-            "loop": true
+    {
+        "fdf" : "in.fdf" ,
+        "out" : "Label.constant_energy.circle.dat",
+        "kpath" : { 
+            "mode" : "constE",
+            "energy" : 0.33,
+            "etol": 0.01,
+            "kRmin" : 0.080,
+            "kRmax" : 0.140,
+            "kwargs": {
+                "origin": [0.0    , 0.0    , 0.0],
+                "normal": [0.0    , 0.0    , 1.0],
+                "N_or_dk": 49,
+                "loop": true
+            }
         }
     }
-}
 
 # 2. Plot spin texture (PlotSpinTexture.py)
 
@@ -175,7 +175,7 @@ Input file should be written in json format specifying the following fields.
 
 (*) required field
 
-## 2.3 Mode-specific input flags
+## 2.4 Mode-specific input flags
 
 ### 2.3.1 Bands mode
 
@@ -193,7 +193,42 @@ Input file should be written in json format specifying the following fields.
  normal           | `list` of `float`  | Normal vector use to select a identify a plane in k space. Default is `[0,0,1]`.
  line             | `bool`     | Whether a line should be drawn through all k points. Default is 'False'.
 
-## 2.3 Example
-    python3 PlotSpinTexture.py b-hex.spin.bands \
-      --yrange="-2:2" \
-      -o SpinTexture.svg
+## 2.5 Example
+
+### 2.5.1 Spin texture along the M - Γ - K - Γ in a 2D material in a hexagonal material
+    {
+        "infile" : "Label.spin.bands.dat",
+        "outfile" : "bands.png",
+        "mode" : "bands",
+        "no-spin" : true,
+        "ylabel" : "Eigenspectrum [eV]",
+        "yrange" : [-0.5, 0.5],
+        "dpi" : 600
+    }
+
+### 2.5.2 Spin texture along a circle in a 2D material
+    {
+        "infile" : "Label.spin.circle.dat",
+        "outfile" : "circle.png",
+        "mode" : "quiver",
+        "xlabel" : "$k_x$",
+        "ylabel" : "$k_y$",
+        "xrange" : [-0.02, 0.02],
+        "yrange" : [-0.02, 0.02],
+        "erange" : [-0.03, 0.03],
+        "dpi" : 600,
+        "line" : true,
+        "normal" : [0.0, 0.0, 1.0]
+    }
+
+### 2.5.3 Spin texture along a constant energy path
+    {
+        "infile" : "Label.spin.constant_energy.dat",
+        "outfile" : "constant_energy.png",
+        "mode" : "quiver",
+        "xlabel" : "$k_x$",
+        "ylabel" : "$k_y$",
+        "erange" : [-0.03, 0.5],
+        "dpi" : 600,
+        "line" : true
+    }
