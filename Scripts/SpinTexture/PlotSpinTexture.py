@@ -218,8 +218,6 @@ if __name__ == '__main__':
         # Generate rotation
         k_n = _a.asarrayd(json_args.get('normal', [0., 0., 1.]))
         _, phi, theta = cart2spher(k_n)
-        print(phi, theta)
-        print(k)
         if theta != 0:
             q = Quaternion(-theta, [0, 1, 0], rad=True) * Quaternion(-phi, [0, 0, 1], rad=True)
         else:
@@ -228,7 +226,6 @@ if __name__ == '__main__':
 
         # Project path onto plane
         k = q.rotate(k)
-        print(k)
 
         nbnds = selected_bands.shape[0]
         nrows = int(np.sqrt(nbnds))
