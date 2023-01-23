@@ -1,0 +1,16 @@
+{
+    "fdf" : "siesta_work/in.fdf" ,
+    "out" : "bi2se3_3ql.spin.bands.dat",
+    "kpath" : {
+        "mode" : "BandStructure",
+        "kwargs":  {
+            "points" : [
+                [0.33333, 0.33333, 0.0],
+                [0.0    , 0.0    , 0.0],
+                [0.5    , 0.0    , 0.0]
+            ],
+            "division": 100,
+            "names" :  ["K", "$\\Gamma$", "M"]
+        }
+    }
+}

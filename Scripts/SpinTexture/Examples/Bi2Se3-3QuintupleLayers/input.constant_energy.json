@@ -1,0 +1,17 @@
+{
+    "fdf" : "siesta_work/in.fdf" ,
+    "out" : "bi2se3_3ql.spin.constan_energy.dat",
+    "kpath" : { 
+        "mode" : "ConstantEnergy",
+        "energy" : 0.33,
+        "etol": 0.01,
+        "kRmin" : 0.080,
+        "kRmax" : 0.140,
+        "kwargs": {
+            "origin": [0.0    , 0.0    , 0.0],
+            "normal": [0.0    , 0.0    , 1.0],
+            "N_or_dk": 49,
+            "loop": true
+        }
+    }
+}

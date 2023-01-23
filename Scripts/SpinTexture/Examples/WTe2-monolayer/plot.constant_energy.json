@@ -1,0 +1,12 @@
+{
+    "infile" : "WTe2.spin.constant_energy.dat",
+    "outfile" : "constant_energy.png",
+    "mode" : "quiver",
+    "xlabel" : "$k_x$",
+    "ylabel" : "$k_y$",
+    "erange" : [-0.03, 0.5],
+    "xrange" : [ 0.0 , 0.5],
+    "yrange" : [-0.3 , 0.3],
+    "dpi" : 600,
+    "line" : true
+}

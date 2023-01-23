@@ -1,0 +1,14 @@
+{
+    "fdf" : "siesta_work/in.fdf" ,
+    "out" : "bi2se3_3ql.spin.circle.dat",
+    "kpath" : { 
+        "mode" : "Circle",
+        "kwargs":  {
+            "kR" : 0.0085,
+            "origin": [0.0    , 0.0    , 0.0],
+            "normal": [0.0    , 0.0    , 1.0],
+            "N_or_dk": 25,
+            "loop": true
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "infile" : "bi2se3_3ql.spin.constan_energy.dat",
+    "outfile" : "constant_energy.png",
+    "mode" : "quiver",
+    "xlabel" : "$k_x$",
+    "ylabel" : "$k_y$",
+    "erange" : [-0.03, 0.5],
+    "dpi" : 600,
+    "line" : true
+}

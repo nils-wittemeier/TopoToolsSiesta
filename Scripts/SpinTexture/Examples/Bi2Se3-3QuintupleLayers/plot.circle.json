@@ -1,0 +1,13 @@
+{
+    "infile" : "bi2se3_3ql.spin.circle.dat",
+    "outfile" : "circle.png",
+    "mode" : "quiver",
+    "xlabel" : "$k_x$",
+    "ylabel" : "$k_y$",
+    "xrange" : [-0.02, 0.02],
+    "yrange" : [-0.02, 0.02],
+    "erange" : [-0.03, 0.03],
+    "dpi" : 600,
+    "line" : true,
+    "normal" : [0.0, 0.0, 1.0]
+}

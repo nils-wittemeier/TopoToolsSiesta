@@ -1,0 +1,13 @@
+{
+    "infile" : "bi2se3_3ql.spin.grid.dat",
+    "outfile" : "grid_xz.png",
+    "mode" : "quiver",
+    "xlabel" : "$k_x$",
+    "ylabel" : "$k_z$",
+    "xrange" : [-1.0, 1.0],
+    "yrange" : [-1.0, 1.0],
+    "erange" : [-0.3, 0.0],
+    "normal" : [1.0, 0.0, 0.0],
+    "dpi" : 600,
+    "line" : false
+}

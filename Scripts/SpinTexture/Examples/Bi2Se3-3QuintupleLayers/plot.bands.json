@@ -1,0 +1,9 @@
+{
+    "infile" : "bi2se3_3ql.spin.bands.dat",
+    "outfile" : "bands.png",
+    "mode" : "bands",
+    "no-spin" : true,
+    "ylabel" : "Eigenspectrum [eV]",
+    "yrange" : [-0.5, 0.5],
+    "dpi" : 600
+}
