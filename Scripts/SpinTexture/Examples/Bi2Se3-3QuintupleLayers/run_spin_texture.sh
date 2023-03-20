@@ -5,7 +5,7 @@ for x in 'bands' 'circle' 'grid' 'constant_energy'; do
 done
 
 # Plot all results
-for x in 'bands' 'spinbands' 'circle' 'grid' 'constant_energy'; do
+for x in 'bands' 'spinbands' 'circle' 'grid_xy' 'grid_xz' 'constant_energy'; do
     echo "Plotting: ${x}"
     python ../../PlotSpinTexture.py "plot.${x}.json"
 done
